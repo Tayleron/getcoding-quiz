@@ -2,19 +2,8 @@ import React, { Component } from 'react';
 import ReactDom from 'react-dom'
 import './App.css';
 
-class App extends Component {
-  render() {
-    return (
-      <div className="App">
-        <header className="App-header">
-          <h1 className="App-title"> Hello World! </h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/app.js</code> and save to reload.
-        </p>
-      </div>
-    );
-  }
-}
 
-export default App;
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
+);
