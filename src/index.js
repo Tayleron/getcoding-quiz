@@ -2,8 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import '../public/index.css';
 
-function test(){
 
-    return "hello world";
-
-}
+ReactDOM.render(
+  <h1>Hello, world!</h1>,
+  document.getElementById('root')
+);
