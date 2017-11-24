@@ -1,8 +1,31 @@
-* {
+* { 
+    background-color: white;
     margin: 10px 10px;
 }
 div {
+    background-color: darkgray;
     margin: 2px auto;
     padding: 5px;
     border: 1px solid black;
+}
+h3 {
+    background: darkgray;
+
+}
+input {
+    background-color: silver;
+    border: 2px solid black;
+    box-shadow: 5px black;
+    transition: .5s;
+}
+input:focus {
+    border: 2px solid white;
+}
+button {
+     background-color: blue;
+     color: white;
+     transition: .2s;
+}
+button:hover {
+    background-color: forestgreen;
 }
