@@ -7,8 +7,8 @@ class QuestionsBlock extends Component {
             <div>
                 Question<input type="text" className="question"/>
                 <br/>
-                Answer<input type="text" className="desc"/>
-                <select name="" id="">
+                Answer<input type="text" className="answer"/>
+                <select name="corResult" id="">
                     <option value="result1">Result 1</option>
                 </select>
                 <button className="addAnswer">+ Answer</button>
