@@ -1,11 +1,8 @@
 * {
     margin: 10px 10px;
-    flex:0
 }
 div {
-    
-    width: 500px;
-    margin: 0 auto;
-    padding: 2px;
+    margin: 2px auto;
+    padding: 5px;
     border: 1px solid black;
 }
