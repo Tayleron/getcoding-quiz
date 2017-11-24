@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import QBox from "./QBox.js";
 
+//fuction addQuestion
 class QuestionsBlock extends Component {
     render() {
         return (
