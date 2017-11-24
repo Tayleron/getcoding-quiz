@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import TitleBlock from './TitleBlock.js';
 import QuestionsBlock from './QuestionsBlock.js';
 import ResultsBlock from './ResultsBlock.js';
+
+//function save
 class App extends Component {
     render() {
         return (
@@ -9,6 +11,7 @@ class App extends Component {
                <TitleBlock />
                <ResultsBlock />
                <QuestionsBlock />
+               <button className="save">Save</button>
             </div>
         )
     }
