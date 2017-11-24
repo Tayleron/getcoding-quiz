@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import ReactDOM from 'react-dom'
 import './App.css';
-
+import App from './App'
 
 ReactDOM.render(
-  <h1>This will be the quiz button one day</h1>,
+  App,
   document.getElementById('root')
 );
