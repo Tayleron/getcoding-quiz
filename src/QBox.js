@@ -3,16 +3,15 @@ import ABox from './ABox.js';
 
 const AnswersList = (props) => {
     const answers = props.answers;
-    console.log(props)
     const listItems = 
-    answers.map((answer, index) =>
-        <ABox 
-            answer={answer} 
-            key={index} 
-            index={index} 
-            handleDelete={props.handleDelete}
-        />
-    );
+        answers.map((answer, index) =>
+            <ABox 
+                answer={answer} 
+                key={index} 
+                index={index} 
+                handleDelete={props.handleDelete}
+            />
+        );
    
     return (
         <div>{listItems}</div>
@@ -41,7 +40,7 @@ class QBox extends React.Component {
         const answers = this.state.answers.slice();
         answers.splice(index, 1)
         this.setState({
-            answers:answers
+            answers: answers
         }, function() {
             console.log('Answer Deleted')
         });
@@ -54,6 +53,7 @@ class QBox extends React.Component {
                 Question<input type="text" className="qText"/>
                 <AnswersList answers={this.state.answers} handleDelete={(index) => this.handleDelete(index)} />
                 <button onClick={() => this.handleAddAnswer()}>+ Answer</button>
+                <button onClick={() => this.props.handleDeleteQ(this.props.index)}>Delete Question</button>
             </div>
         )
     };
