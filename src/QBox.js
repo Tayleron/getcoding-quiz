@@ -2,8 +2,9 @@ import React from "react";
 import ABox from './ABox.js';
 
 function answersList(props) {
-    const answers = props.answers;
-    const listItems = answers.map((answer) =>
+    const answers = this.props.answers;
+    const listItems = 
+    answers.map((answers) =>
         <li key={answers.toString()}>
             {answers}
         </li>
@@ -16,25 +17,26 @@ class QBox extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
-            answers: []
+            answers: ['']
         };
     }
     
     handleAddAnswer(props) {
+        const answers = this.state.answers.slice();
+        answers.push('');
         this.setState({
-            answers: <ABox />
+            answers: answers
         }, function() {
             console.log('Answer Added');
         });
     }
 
     render() {
-        const answers = []
 
         return (
             <div className="question">
                 Question<input type="text" className="qText"/>
-                <answersList listItems={answers} />
+                <answersList listItems={this.state.answers} />
                 <ABox />
                 <button onClick={() => this.handleAddAnswer()}>+ Answer</button>
             </div>
