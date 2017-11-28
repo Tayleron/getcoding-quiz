@@ -1,30 +1,35 @@
 import React from "react";
 
-
-function handleDelete(props) {
-    return (
-        this.setState = {delete: true},
-        this.props.onClick(this.props.id)
-    );
-}
-
 class ABox extends React.Component {
     constructor(props) {
         super(props);
-        this.state = ({delete: false});
+        this.handleDelete = this.handleDelete.bind(this);
+        this.state = {exists: true};
+    }
+    
+    handleDelete(props) {
+        this.setState({
+            exists:false
+        }, function() {
+            console.log('Answer Deleted!');
+        });
     }
     
     render() {
-        return (
-            <div>
-                Answer<input type="text" className="aText"/>
-                <select name="corResult" id="">
-                    <option value="result1">Result 1</option>
-                    <option value="result2">Result 2</option>
-                </select>
-                <button onClick={this.handleDelete}>Delete</button>
-            </div>
-        )
+        const exists = this.state.exists;
+        
+        if (exists) {
+            return (
+                <div>
+                    Answer<input type="text" className="aText"/>
+                    <select name="corResult" id="">
+                        <option value="result1">Result 1</option>
+                        <option value="result2">Result 2</option>
+                    </select>
+                    <button onClick={this.handleDelete}>Delete</button>
+                </div>
+            )
+        }
     };
 }
 
