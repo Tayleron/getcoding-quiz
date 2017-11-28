@@ -1,16 +1,21 @@
 import React from "react";
 import ABox from './ABox.js';
 
-function answersList(props) {
-    const answers = this.props.answers;
+const AnswersList = (props) => {
+    const answers = props.answers;
+    console.log(props)
     const listItems = 
-    answers.map((answers) =>
-        <li key={answers.toString()}>
-            {answers}
-        </li>
+    answers.map((answer, index) =>
+        <ABox 
+            answer={answer} 
+            key={index} 
+            index={index} 
+            handleDelete={props.handleDelete}
+        />
     );
+   
     return (
-        <ul>{listItems}</ul>
+        <div>{listItems}</div>
     );
 }
 class QBox extends React.Component {
@@ -21,7 +26,7 @@ class QBox extends React.Component {
         };
     }
     
-    handleAddAnswer(props) {
+    handleAddAnswer() {
         const answers = this.state.answers.slice();
         answers.push('');
         this.setState({
@@ -31,13 +36,23 @@ class QBox extends React.Component {
         });
     }
 
+    handleDelete(index) {
+        
+        const answers = this.state.answers.slice();
+        answers.splice(index, 1)
+        this.setState({
+            answers:answers
+        }, function() {
+            console.log('Answer Deleted')
+        });
+    }
+
     render() {
 
         return (
             <div className="question">
                 Question<input type="text" className="qText"/>
-                <answersList listItems={this.state.answers} />
-                <ABox />
+                <AnswersList answers={this.state.answers} handleDelete={(index) => this.handleDelete(index)} />
                 <button onClick={() => this.handleAddAnswer()}>+ Answer</button>
             </div>
         )
