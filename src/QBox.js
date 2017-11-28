@@ -7,7 +7,7 @@ class QBox extends React.Component {
         return (
             <div className="question">
                 Question<input type="text" className="qText"/>
-                <ABox />           
+                <ABox />          
                 <button className="addAnswer">+ Answer</button>
             </div>
         )

@@ -29,6 +29,8 @@ class ABox extends React.Component {
                     <button onClick={this.handleDelete}>Delete</button>
                 </div>
             )
+        } else {
+            return null;
         }
     };
 }
