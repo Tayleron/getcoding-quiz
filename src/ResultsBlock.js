@@ -1,74 +1,57 @@
 import React, { Component } from 'react';
-import RTbox from './RTbox.js';
-import RDbox from './RDbox.js';
+import ResultsItem from './ResultsItem.js';
+
+
+const ResultsList = (props) => {
+    const results = props.results;
+    const listResults = 
+        results.map((result, index) => 
+            <ResultsItem 
+                resultTitle={result.resultTitle}
+                resultDescription={result.resultDescription}
+                key={index}
+                index={index}
+                //handleDeleteQ={props.handleDeleteQ}
+            />
+        );
+
+        console.log(results)
+    return (
+        <div>{listResults}</div>
+    );
+}
 
 
 class ResultsBlock extends Component {
-
     constructor(props) {
         super(props);
         this.state = {
-                resultTitle: '',
-                resultDescription: ''
-            };
-    
-        this.handleSubmit = this.handleSubmit.bind(this);
-      }
-    
-      handleSubmit(event) {
-        const target = event.target;
+            results: ['']
+        }
+    }
 
-        const rTitle = target.resultTitle;
-        const rDescription = target.resultDescription;
-        
-        console.log('Submitted: ' + rTitle + " & " + rDescription);
-
+    handleAddResult() {
+        const results = this.state.results.slice();
+        results.push('');
         this.setState({
-            [name]: value
-          });
-
-        event.preventDefault();
-      }
-
-
+            results: results
+        }, function() {
+            console.log('Result Added');
+        });
+    }
 
     render() {
         return (
             <div>
                 <div>
-                        <form onSubmit={this.handleSubmit}>
-
-                                <label>
-
-                                     <textarea
-
-                                        name="resultTitle"
-                                        type="text"
-                                        value={this.state.resultTitle}
-                                    />
-                                        
-
-                                </label>
-
-                                <label>
-                                        <textarea
-
-                                                name="resultDescription"
-                                                type="text"
-                                                value={this.state.resultDescription}
-                                        />
-                                </label>
-                        
-                                <input type="submit" value="Submit" />    
-
-                        </form>
+                        <ResultsList results={this.state.results} />
                 </div>
-                <br/>
-                <button className="addResult">+ Result</button>
+                <button onClick={() => this.handleAddResult()}>+ Result</button>
             </div>
             
         )
     };
 }
+//                <QuestionsList questions={this.state.questions} /> handleDeleteQ={(index) => this.handleDeleteQ(index)} />
 
 export default ResultsBlock
