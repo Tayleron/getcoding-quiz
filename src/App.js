@@ -5,6 +5,15 @@ import ResultsBlock from './ResultsBlock.js';
 
 //function save
 class App extends Component {
+    constructor(props) {
+        super(props)
+        this.state = {
+            MyQuiz = {
+                
+
+            }
+        };
+    }
     render() {
         return (
             <div><h3>App Block</h3>
