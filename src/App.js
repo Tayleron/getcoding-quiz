@@ -3,16 +3,22 @@ import TitleBlock from './TitleBlock.js';
 import QuestionsBlock from './QuestionsBlock.js';
 import ResultsBlock from './ResultsBlock.js';
 
-//function save
+
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            MyQuiz = {
-                
-
-            }
+           MyQuiz: {}
         };
+    }
+    handleSave(questions, answers) {
+        const MyQuiz = ''
+        this.setState({
+            MyQuiz: {questions, answers}
+        }, function() {
+            console.log("Quiz Saved!")
+            console.log(MyQuiz);
+        });
     }
     render() {
         return (
@@ -20,10 +26,60 @@ class App extends Component {
                <TitleBlock />
                <ResultsBlock />
                <QuestionsBlock />
-               <button className="save">Save</button>
+               <button 
+                    onClick={() => 
+                        this.handleSave()
+                    }>
+                    Save
+                </button>
             </div>
         )
     }
 }
 
 export default App
+/*
+structure of JSON
+const MyQuiz = {
+    "title" : {
+        "title" : "Title of the Quiz",
+        "desc" : "Description of the Quiz"
+    },
+    "result1" : {
+        "title" : "Title of the result",
+        "desc" : "Description of the result"
+    }
+    "result2" : {
+        "title" : "Title of the result",
+        "desc" : "Description of the result"
+    }
+    "result3" : {
+        "title" : "Title of the result",
+        "desc" : "Description of the result"
+    }
+    "question1" : {
+        "question" : "The text of the question"
+        "answer1" : "The text of the answer" : {
+            "corResult" : "The corresponding result"
+        }
+        "answer2" : "The text of the answer" : {
+            "corResult" : "The corresponding result"
+        }
+        "answer3" : "The text of the answer" : {
+            "corResult" : "The corresponding result"
+        }
+    }
+    "question2" : {
+        "question" : "The text of the question"
+        "answer1" : "The text of the answer" : {
+            "corResult" : "The corresponding result"
+        }
+        "answer2" : "The text of the answer" : {
+            "corResult" : "The corresponding result"
+        }
+        "answer3" : "The text of the answer" : {
+            "corResult" : "The corresponding result"
+        }
+    }
+}
+*/
