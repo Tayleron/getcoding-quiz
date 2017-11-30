@@ -8,7 +8,32 @@ class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-           MyQuiz: {}
+            MyQuiz: {
+                "title" : {
+                    "title" : "",
+                    "desc" : ""
+                },
+                "results" : [
+                    {
+                    "id" : "",
+                    "title" : "",
+                    "desc" : "",
+                    },
+                ],
+                "questions" : [
+                    {
+                    "id" : "",
+                    "question" : "",
+                        "answers" : [
+                            {
+                            "id" : "",
+                            "text" : "",
+                            "corResult" : "",
+                            },
+                        ]              
+                    },
+                ]
+            }
         };
     }
     handleSave(questions, answers) {
@@ -42,44 +67,23 @@ export default App
 structure of JSON
 const MyQuiz = {
     "title" : {
-        "title" : "Title of the Quiz",
-        "desc" : "Description of the Quiz"
+        "title" : "",
+        "desc" : ""
     },
-    "result1" : {
-        "title" : "Title of the result",
-        "desc" : "Description of the result"
-    }
-    "result2" : {
-        "title" : "Title of the result",
-        "desc" : "Description of the result"
-    }
-    "result3" : {
-        "title" : "Title of the result",
-        "desc" : "Description of the result"
-    }
-    "question1" : {
-        "question" : "The text of the question"
-        "answer1" : "The text of the answer" : {
-            "corResult" : "The corresponding result"
-        }
-        "answer2" : "The text of the answer" : {
-            "corResult" : "The corresponding result"
-        }
-        "answer3" : "The text of the answer" : {
-            "corResult" : "The corresponding result"
-        }
-    }
-    "question2" : {
-        "question" : "The text of the question"
-        "answer1" : "The text of the answer" : {
-            "corResult" : "The corresponding result"
-        }
-        "answer2" : "The text of the answer" : {
-            "corResult" : "The corresponding result"
-        }
-        "answer3" : "The text of the answer" : {
-            "corResult" : "The corresponding result"
-        }
-    }
+    "results" : [{
+        "id" : "",
+        "title" : "",
+        "desc" : ""
+    }]
+    "questions" : [{
+        "id" : "",
+        "question" : ""
+        "answers" : [{
+            "id" : "",
+            "text" : "",
+            "corResult" : ""
+            },
+        ]              
+    }]
 }
 */
