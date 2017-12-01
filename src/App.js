@@ -4,7 +4,8 @@ import QuestionsBlock from './QuestionsBlock.js';
 import ResultsBlock from './ResultsBlock.js';
 
 //function save
-class App extends Component {
+class App extends Component { 
+
     render() {
         return (
             <div><h3>App Block</h3>

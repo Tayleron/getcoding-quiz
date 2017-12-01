@@ -3,7 +3,15 @@ import ResultsItem from './ResultsItem.js';
 
 
 const ResultsList = (props) => {
+
     const results = props.results;
+
+    if(!results){
+
+        return null
+
+    }
+
     const listResults = 
         results.map((result, index) => 
             <ResultsItem 
@@ -11,11 +19,11 @@ const ResultsList = (props) => {
                 resultDescription={result.resultDescription}
                 key={index}
                 index={index}
+                handleTextChange={props.handleTextChange}
                 //handleDeleteQ={props.handleDeleteQ}
             />
         );
 
-        console.log(results)
     return (
         <div>{listResults}</div>
     );
@@ -25,26 +33,43 @@ const ResultsList = (props) => {
 class ResultsBlock extends Component {
     constructor(props) {
         super(props);
+        
         this.state = {
-            results: ['']
+            
+            results: [{
+
+                resultTitle: '',
+                resultDescription: ''
+
+            }]
+
         }
     }
 
     handleAddResult() {
         const results = this.state.results.slice();
-        results.push('');
+        results.push({resultTitle: '', resultDescription: ''});
         this.setState({
             results: results
         }, function() {
             console.log('Result Added');
+            console.log(results);
         });
+    }
+
+    handleTextChange (event, index) {
+        const {name, value} = event.target
+        const temp = this.state.results.slice()
+        temp[index][name] = event.target.value
+        this.setState({results: temp})
     }
 
     render() {
         return (
             <div>
                 <div>
-                        <ResultsList results={this.state.results} />
+                        <ResultsList results={this.state.results} handleTextChange={(event, index) => this.handleTextChange(event, index)}/>
+
                 </div>
                 <button onClick={() => this.handleAddResult()}>+ Result</button>
             </div>
