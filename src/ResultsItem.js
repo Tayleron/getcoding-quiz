@@ -15,8 +15,8 @@ class ResultsItem extends Component {
     
       handleSubmit(event) {
         const target = event.target;
-        const name = target.name;
-        const value = target.type;
+        // const name = target.name;
+        // const value = target.type;
     
         this.setState({
                 rTitle: target.resultTitle,

@@ -3,12 +3,11 @@ import TitleBlock from './TitleBlock.js';
 import QuestionsBlock from './QuestionsBlock.js';
 import ResultsBlock from './ResultsBlock.js';
 
-
 class App extends Component {
     constructor(props) {
         super(props)
         this.state = {
-            MyQuiz: {
+            myQuiz: {
                 "title" : {
                     "title" : "",
                     "desc" : ""
@@ -36,25 +35,35 @@ class App extends Component {
             }
         };
     }
-    handleSave(questions, answers) {
-        const MyQuiz = ''
+    handleUpdate(props) {
         this.setState({
-            MyQuiz: {questions, answers}
+
         }, function() {
-            console.log("Quiz Saved!")
-            console.log(MyQuiz);
+            console.log(this.state);
         });
     }
+
+    handleChange(title) {
+        const temp = this.state.title.slice();
+        
+        
+        this.setState({
+            myQuiz: temp
+        });
+    }
+
+
     render() {
         return (
             <div><h3>App Block</h3>
-               <TitleBlock />
-               <ResultsBlock />
-               <QuestionsBlock />
-               <button 
-                    onClick={() => 
-                        this.handleSave()
-                    }>
+                <TitleBlock 
+                    title={this.state.myQuiz.title.title} 
+                    desc={this.state.myQuiz.title.desc}
+                    onChange={(title) => this.handleChange(title)} 
+                />
+                <ResultsBlock />
+                <QuestionsBlock />
+                <button>
                     Save
                 </button>
             </div>
@@ -63,27 +72,3 @@ class App extends Component {
 }
 
 export default App
-/*
-structure of JSON
-const MyQuiz = {
-    "title" : {
-        "title" : "",
-        "desc" : ""
-    },
-    "results" : [{
-        "id" : "",
-        "title" : "",
-        "desc" : ""
-    }]
-    "questions" : [{
-        "id" : "",
-        "question" : ""
-        "answers" : [{
-            "id" : "",
-            "text" : "",
-            "corResult" : ""
-            },
-        ]              
-    }]
-}
-*/
