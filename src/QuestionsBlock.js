@@ -13,7 +13,9 @@ const QuestionsList = (props) => {
             />
         );
     return (
-        <div>{listQuests}</div>
+        <div>
+            {listQuests}
+        </div>
     );
 }
 
@@ -47,10 +49,17 @@ class QuestionsBlock extends Component {
         return (
             <div>
                 <h3>Questions Block</h3>
-                <QuestionsList questions={this.state.questions} handleDeleteQ={(index) => this.handleDeleteQ(index)} />
-                <br/>
-                <button onClick={() => this.handleAddQuestion()}>+ Question</button>
-
+                <QuestionsList 
+                    questions={this.state.questions} 
+                    handleDeleteQ={(index) =>
+                        this.handleDeleteQ(index)}
+                />
+                <button 
+                    onClick={() => 
+                        this.handleAddQuestion()
+                    }>
+                    + Question
+                </button>
             </div>
             
         )
