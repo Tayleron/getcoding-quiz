@@ -4,7 +4,7 @@ import React, { Component } from 'react';
 class TitleBlock extends Component {
 
     handleUpdate(event) {
-        this.props.onChange(event.target.value)
+        this.props.onChange(event)
     }
     
     render() {
@@ -16,6 +16,7 @@ class TitleBlock extends Component {
                     <label>
                         Quiz Title
                         <input 
+                            name="title"
                             type="text"
                             value={title}
                             onChange={(event) => this.handleUpdate(event)}
@@ -24,6 +25,7 @@ class TitleBlock extends Component {
                     <label>
                         Quiz Description
                         <input 
+                            name="desc"
                             type="text"
                             value={desc}
                             onChange={(event) => this.handleUpdate(event)}

@@ -36,12 +36,15 @@ class App extends Component {
         };
     }
 
-    handleChange(title, desc) {
-        const qtitle = title;
-        const qdesc = desc;
+    handleChange(event) {        
+        const myQuiz = this.state.myQuiz
+        const value = event.target.value
+        const name = event.target.name
+
+        myQuiz.title[name] = value
         
         this.setState(
-            {myQuiz: {title: {title: qtitle, desc: qdesc}}},
+            {myQuiz: myQuiz},
             function(){console.log(this.state)}
         );
     };
@@ -54,7 +57,7 @@ class App extends Component {
                 <TitleBlock 
                     title={title} 
                     desc={desc}
-                    onChange={(title, desc) => this.handleChange(title, desc)} 
+                    onChange={(event) => this.handleChange(event)} 
                 />
                 <ResultsBlock />
                 <QuestionsBlock />
