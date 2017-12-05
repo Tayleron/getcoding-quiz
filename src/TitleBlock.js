@@ -18,7 +18,7 @@ class TitleBlock extends Component {
             <input 
               name="title"
               type="text"
-              // value={title}
+              value={title}
               onChange={(event) => this.handleUpdate(event)}
               />
           </label>
@@ -27,7 +27,7 @@ class TitleBlock extends Component {
             <input 
               name="desc"
               type="text"
-              // value={desc}
+              value={desc}
               onChange={(event) => this.handleUpdate(event)}
               />
           </label>
