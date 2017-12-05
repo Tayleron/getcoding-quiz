@@ -35,31 +35,26 @@ class App extends Component {
             }
         };
     }
-    handleUpdate(props) {
-        this.setState({
 
-        }, function() {
-            console.log(this.state);
-        });
-    }
-
-    handleChange(title) {
-        const temp = this.state.title.slice();
+    handleChange(title, desc) {
+        const qtitle = title;
+        const qdesc = desc;
         
-        
-        this.setState({
-            myQuiz: temp
-        });
-    }
-
+        this.setState(
+            {myQuiz: {title: {title: qtitle, desc: qdesc}}},
+            function(){console.log(this.state)}
+        );
+    };
 
     render() {
+        const title = this.state.title;
+        const desc = this.state.desc;
         return (
             <div><h3>App Block</h3>
                 <TitleBlock 
-                    title={this.state.myQuiz.title.title} 
-                    desc={this.state.myQuiz.title.desc}
-                    onChange={(title) => this.handleChange(title)} 
+                    title={title} 
+                    desc={desc}
+                    onChange={(title, desc) => this.handleChange(title, desc)} 
                 />
                 <ResultsBlock />
                 <QuestionsBlock />
