@@ -2,10 +2,12 @@ import React, { Component } from 'react';
 import QBox from "./QBox.js";
 
 const QuestionsList = (props) => {
-	const questions = props.questions;
+	const { onChange, questions } = props
+	console.log(onChange)
 	const listQuests =
 		questions.map((question, index) =>
 			<QBox
+				onChange={onChange}
 				question={question}
 				key={index}
 				index={index}
@@ -18,7 +20,6 @@ const QuestionsList = (props) => {
 		</div>
 	);
 }
-
 class QuestionsBlock extends Component {
 	constructor(props) {
 		super(props);
@@ -44,12 +45,13 @@ class QuestionsBlock extends Component {
 			console.log('Question Deleted')
 		});
 	}
-
 	render() {
+		const { onChange } = this.props
 		return (
 			<div>
 				<h3>Questions Block</h3>
 				<QuestionsList
+					onChange={onChange}
 					questions={this.state.questions}
 					handleDeleteQ={(index) =>
 						this.handleDeleteQ(index)}
@@ -59,9 +61,8 @@ class QuestionsBlock extends Component {
 						this.handleAddQuestion()
 					}>
 					+ Question
-                </button>
+        </button>
 			</div>
-
 		)
 	};
 }

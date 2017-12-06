@@ -41,7 +41,17 @@ class App extends Component {
 			[name]: value
 		})
 	};
-
+	handleQuestionsChange = (event) => {
+		console.log(event.target)
+		const value = event.target.value
+		const name = event.target.getAttribute('name')
+		const index = parseInt(event.target.getAttribute('index'))
+		const questions = this.state.questions
+		const question = questions[index] || {}
+		question[name] = value
+		question.id = index
+		console.log(question)
+	}
 	render() {
 		console.log(this.state)
 		const title = this.state.title;
@@ -56,7 +66,7 @@ class App extends Component {
 				/>
 				<ResultsBlock />
 				<QuestionsBlock
-
+					onChange={this.handleQuestionsChange}
 				/>
 				<button>
 					Save

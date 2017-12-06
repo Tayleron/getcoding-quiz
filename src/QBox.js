@@ -6,6 +6,7 @@ const AnswersList = (props) => {
 	const listItems =
 		answers.map((answer, index) =>
 			<ABox
+				// onChange={onChange}
 				answer={answer}
 				key={index}
 				index={index}
@@ -47,10 +48,11 @@ class QBox extends React.Component {
 	}
 
 	render() {
-
+		const { onChange, index } = this.props
+		console.log(onChange)
 		return (
 			<div className="question">
-				Question<input type="text" className="qText" />
+				Question<input type="text" className="qText" onChange={onChange} name="question" index={index}/>
 				<AnswersList answers={this.state.answers} handleDelete={(index) => this.handleDelete(index)} />
 				<button onClick={() => this.handleAddAnswer()}>+ Answer</button>
 				<button onClick={() => this.props.handleDeleteQ(this.props.index)}>Delete Question</button>
